@@ -8,7 +8,7 @@
   color: $primaryCl;
   .header__navbar {
     justify-content: space-between;
-    padding: 10px 0px;
+    padding: 20px 0px;
   }
 
   &__logo {
@@ -31,6 +31,19 @@
       color: $hoverCl;
     }
   }
+  &__form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #CCCCCC;
+    padding: 0px 15px;
+    gap: 60px;
+    border-radius: 10px;
+    input {
+      outline: none;
+      border: none;
+      padding: 10px 0px;
+    }
+  }
   &__hamburger {
     display: none;
     flex-direction: column;
@@ -45,9 +58,43 @@
       border-radius: 2px;
     }
   }
+
+  .btns {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .login__btn {
+      padding: 10px 30px;
+      border-radius: 10px;
+      border: 1px solid gray;
+      cursor: pointer;
+    }
+  
+    .login__btn:hover {
+      border: 1px solid gray;
+      background: $hoverCl;
+      transition: 1s;
+    }
+    .sign__btn {
+      padding: 10px 30px;
+      border-radius: 10px;
+      border: 1px solid gray;
+      background: $hoverCl;
+      cursor: pointer;
+    }
+    .sign__btn:hover {
+      border: 1px solid $hoverCl;
+      background: $secondaryCl;
+      transition: 1s;
+    }
+  }
 }
 
-@media (max-width:500px) {
+.hero__link {
+  font-size: 18px;
+}
+
+@media (max-width: 1100px) {
   .header {
     &__list {
       position: fixed;
@@ -67,6 +114,79 @@
     }
     &__show-list {
       left: 0;
+    }
+    &__form {
+      display: none;
+    }
+    .navbar__link {
+      display: none;
+    }
+  }
+
+
+
+  @media (max-width:700px) {
+    .btns {
+      display: none !important;
+    }
+  }
+  
+}
+
+
+.dr {
+  .dropdown {
+    position: relative;
+    border-radius: 5px;
+    padding: 8px;
+    display: inline-block;
+    cursor: pointer;
+
+    &__text {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    &__icon {
+      font-size: 14px;
+      display: inline-block;
+      transition: 0.8s;
+    }
+
+    &__list {
+      position: absolute;
+      background-color: white;
+      width: 100%;
+      top: 110%;
+      left: 0;
+      box-shadow: 0px 0px 4px skyblue;
+      border-radius: 2px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 1s;
+      transform: scale(0);
+      display: flex;
+      flex-direction: column;
+
+      &__item {
+        border-radius: 2px;
+        padding: 5px;
+
+        &:hover {
+          background-color: skyblue;
+          color: white;
+        }
+      }
+    }
+
+    &:hover .dropdown__list {
+      visibility: visible;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &:hover .dropdown__icon {
+      transform: rotateX(180deg);
     }
   }
 }
